@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GardenMentor</title>
+  <meta name="description" content="GardenMentor: a senior-friendly gardening calendar and expert mentorship board prototype.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-row">
+        <p class="brand"><span aria-hidden="true">🌿</span> GardenMentor</p>
+
+        <div class="textsize" role="group" aria-labelledby="textsize-label">
+          <span id="textsize-label" class="textsize-label">Text Size:</span>
+          <button type="button" class="size-btn" data-size="16px" aria-pressed="true">Normal</button>
+          <span class="sep" aria-hidden="true">|</span>
+          <button type="button" class="size-btn" data-size="20px" aria-pressed="false">Large</button>
+          <span class="sep" aria-hidden="true">|</span>
+          <button type="button" class="size-btn" data-size="24px" aria-pressed="false">Extra Large</button>
+        </div>
+      </div>
+
+      <nav aria-label="Main views">
+        <ul class="nav-list">
+          <li><button type="button" class="nav-btn" data-go="calendar">1. Seasonal Calendar</button></li>
+          <li><button type="button" class="nav-btn" data-go="home">2. Home</button></li>
+          <li><button type="button" class="nav-btn" data-go="create_post">3. Ask an Expert</button></li>
+          <li><button type="button" class="nav-btn" data-go="view_post">4. Mentorship Board</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="page">
+
+    <!-- ============ VIEW 1: Seasonal Calendar ============ -->
+    <section class="view" data-view="calendar" data-title="Seasonal Calendar" aria-labelledby="h-calendar">
+      <div class="view-head">
+        <h1 id="h-calendar" tabindex="-1">Beginner Gardening &amp; Upkeep Calendar</h1>
+        <button type="button" class="btn btn-primary no-print" id="print-btn"><span aria-hidden="true">🖨️</span> Print Calendar</button>
+      </div>
+
+      <div class="cal-layout">
+        <div class="cal-main">
+          <div class="card cal-card">
+            <table class="calendar" id="calendar">
+              <caption>October 2026</caption>
+              <thead>
+                <tr>
+                  <th scope="col"><abbr title="Sunday">Sun</abbr></th>
+                  <th scope="col"><abbr title="Monday">Mon</abbr></th>
+                  <th scope="col"><abbr title="Tuesday">Tue</abbr></th>
+                  <th scope="col"><abbr title="Wednesday">Wed</abbr></th>
+                  <th scope="col"><abbr title="Thursday">Thu</abbr></th>
+                  <th scope="col"><abbr title="Friday">Fri</abbr></th>
+                  <th scope="col"><abbr title="Saturday">Sat</abbr></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <section class="card legend" aria-labelledby="legend-h">
+            <h2 id="legend-h">Calendar Icon Key / Legend</h2>
+            <ul>
+              <li><span class="legend-icon" aria-hidden="true">💧</span> = Water deeply in the morning</li>
+              <li><span class="legend-icon" aria-hidden="true">🌱</span> = Plant / Apply vegetable fertilizer</li>
+              <li><span class="legend-icon" aria-hidden="true">🍅</span> = Harvest check</li>
+              <li class="legend-note"><span class="legend-icon" aria-hidden="true">❄️</span> Blue-shaded days = First Frost Warning window</li>
+            </ul>
+          </section>
+        </div>
+
+        <aside class="cal-side" aria-labelledby="alerts-h">
+          <div class="card alerts">
+            <h2 id="alerts-h">Seasonal Alerts &amp; Warnings</h2>
+            <p class="alert alert-bug">🐛 Early Fall: Watch for aphids &amp; beetles on lower leaves.</p>
+            <p class="alert alert-frost">❄️ Oct 15–22 — First Frost Warning: Please remember to cover your tender crops!</p>
+          </div>
+        </aside>
+      </div>
+
+      <div class="footer-banner no-print">
+        <div class="footer-box">
+          <p>Need visual help? Our Home page has photo help and this week's routine.</p>
+          <button type="button" class="btn btn-primary" data-go="home">Go to the Home Page</button>
+        </div>
+        <div class="footer-box">
+          <p>📞 Prefer word-of-mouth help? Call our Expert Hotline: <a class="phone" href="tel:+18005554769">1-800-555-GROW</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VIEW 2: Home ============ -->
+    <section class="view" data-view="home" data-title="Home" aria-labelledby="h-home" hidden>
+      <nav class="breadcrumb" aria-label="You are here"><ol><li aria-current="page"><strong>Home</strong></li></ol></nav>
+      <h1 id="h-home" class="sr-only" tabindex="-1">GardenMentor Home</h1>
+
+      <div class="routine-banner">
+        <p class="routine-title">October 19 – 25 <span aria-hidden="true">|</span> This Week's Routine:</p>
+        <ul class="routine-list">
+          <li><strong>Mon:</strong> <span aria-hidden="true">💧</span> Water</li>
+          <li><strong>Wed:</strong> <span aria-hidden="true">💧</span> Water + Check Leaves</li>
+          <li><strong>Fri:</strong> <span aria-hidden="true">🌱</span> Fertilize</li>
+        </ul>
+      </div>
+
+      <div class="two-col">
+        <article class="card big-card">
+          <div class="big-icon" aria-hidden="true">📷</div>
+          <h2>Upload a Plant Photo to the Mentorship Board</h2>
+          <p>Not sure if your crop looks healthy? Snap a picture and get an Expert Verified answer.</p>
+          <button type="button" class="btn btn-primary btn-xl" data-go="create_post">Click Here To Get Started</button>
+        </article>
+
+        <article class="card big-card">
+          <div class="big-icon" aria-hidden="true">📞</div>
+          <h2>Speak to an Expert Mentor by Phone</h2>
+          <p><strong>Live Call-In Hours:</strong> 9:00 AM – 5:00 PM Daily.</p>
+          <p>Call <a class="phone phone-big" href="tel:+18005554769">1-800-555-GROW</a> for step-by-step guidance.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ VIEW 3: Ask an Expert ============ -->
+    <section class="view" data-view="create_post" data-title="Ask an Expert" aria-labelledby="h-create" hidden>
+      <nav class="breadcrumb" aria-label="You are here"><ol><li><button type="button" class="crumb-link" data-go="home">Home</button></li><li aria-current="page"><strong>Ask an Expert</strong></li></ol></nav>
+      <h1 id="h-create" tabindex="-1">Post a Question to the Community Mentorship Board</h1>
+
+      <form id="post-form" class="two-col form-cols" novalidate>
+        <div class="card form-card">
+          <div class="field">
+            <p class="field-label" id="upload-label">Upload a Photo</p>
+            <div class="attach-row">
+              <label class="btn btn-secondary attach-btn" for="photo-input">📎 Attach</label>
+              <input type="file" id="photo-input" class="file-input" accept="image/*" aria-describedby="file-status">
+              <span id="file-status" class="file-status" role="status">Using the sample tomato photo. Attach your own if you like.</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="crop-select">Select Your Crop:</label>
+            <select id="crop-select">
+              <option selected>Tomatoes</option>
+              <option>Peppers</option>
+              <option>Lettuce</option>
+              <option>Cucumbers</option>
+              <option>Herbs</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="post-text">Add Any Helpful Information</label>
+            <textarea id="post-text" rows="6" aria-describedby="post-error">This is my first tomato plant. I noticed some curling on the leaves during my morning watering. Is it doing okay so far?</textarea>
+            <p id="post-error" class="error" role="alert" hidden></p>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="btn btn-secondary" data-go="home">Back</button>
+            <button type="submit" class="btn btn-primary">Post</button>
+          </div>
+        </div>
+
+        <div class="card preview-card">
+          <h2>Image Preview</h2>
+          <div class="preview-frame">
+            <img id="preview-img" alt="">
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- ============ VIEW 4: Mentorship Board ============ -->
+    <section class="view" data-view="view_post" data-title="Mentorship Board" aria-labelledby="h-post" hidden>
+      <nav class="breadcrumb" aria-label="You are here"><ol><li><button type="button" class="crumb-link" data-go="home">Home</button></li><li aria-current="page"><strong>Mentorship Board</strong></li></ol></nav>
+      <h1 id="h-post" tabindex="-1">Your Question to the Community Mentorship Board</h1>
+
+      <article class="card post-card" aria-label="Your question">
+        <img id="post-img" class="post-img" alt="">
+        <div class="post-body">
+          <p class="handle">@Novice_Gardener <span class="crop-tag" id="post-crop">Tomatoes</span></p>
+          <p class="post-text" id="post-body-text"></p>
+        </div>
+      </article>
+
+      <article class="card reply-card" aria-labelledby="reply-h">
+        <h2 id="reply-h">Here's Your Reply!</h2>
+        <p class="handle">
+          <span class="badge">✓ EXPERT VERIFIED</span>
+          @Dr_Walker_Horticulturalist
+        </p>
+        <p class="reply-text">Your plant looks healthy overall! Slight leaf curl in the morning is normal, just keep following your Calendar watering schedule each morning and watch for frost next week.</p>
+
+        <div class="rating">
+          <p class="rating-q" id="rating-q">Was this verified expert response helpful?</p>
+          <div class="btn-row btn-row-left" role="group" aria-labelledby="rating-q">
+            <button type="button" class="btn btn-secondary" data-rate="yes">👍 Yes, Helpful</button>
+            <button type="button" class="btn btn-secondary" data-rate="more">❓ Need More Clarification</button>
+          </div>
+          <p class="rating-msg" id="rating-msg" role="status" hidden></p>
+        </div>
+      </article>
+
+      <section class="card thread-card" aria-labelledby="thread-h">
+        <h2 id="thread-h">Reply / Ask a Follow-Up Question</h2>
+        <div class="thread" id="thread" role="log" aria-live="polite" aria-label="Follow-up conversation">
+          <p class="thread-empty" id="thread-empty">No follow-up messages yet. Type one below.</p>
+        </div>
+
+        <form id="reply-form" class="reply-form" novalidate>
+          <label class="field-label" for="reply-input">Your follow-up message</label>
+          <textarea id="reply-input" rows="3" placeholder="Type your follow-up question here…" aria-describedby="reply-error"></textarea>
+          <p id="reply-error" class="error" role="alert" hidden>Please type a message before sending.</p>
+          <div class="btn-row btn-row-left">
+            <button type="submit" class="btn btn-primary">Send Reply</button>
+          </div>
+        </form>
+      </section>
+    </section>
+
+  </main>
+
+  <footer class="site-footer no-print">
+    <div class="footer-inner">
+      <div class="footer-cols">
+        <section class="footer-col" aria-labelledby="f-about">
+          <h2 id="f-about" class="footer-brand"><span aria-hidden="true">🌿</span> GardenMentor</h2>
+          <p>Friendly, expert-verified gardening help for beginners, one season at a time.</p>
+          <p class="footer-small">Free for gardeners of every age and experience level.</p>
+        </section>
+
+        <nav class="footer-col" aria-labelledby="f-explore">
+          <h2 id="f-explore">Explore</h2>
+          <ul class="footer-links">
+            <li><button type="button" class="footer-link" data-go="calendar">Seasonal Calendar</button></li>
+            <li><button type="button" class="footer-link" data-go="home">Home</button></li>
+            <li><button type="button" class="footer-link" data-go="create_post">Ask an Expert</button></li>
+            <li><button type="button" class="footer-link" data-go="view_post">Mentorship Board</button></li>
+          </ul>
+        </nav>
+
+        <section class="footer-col" aria-labelledby="f-help">
+          <h2 id="f-help">Get Help</h2>
+          <p><span aria-hidden="true">📞</span> Expert Hotline:<br><a class="footer-phone" href="tel:+18005554769">1-800-555-GROW</a></p>
+          <p><span aria-hidden="true">🕘</span> Live call-in hours:<br>9:00 AM – 5:00 PM daily</p>
+        </section>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">© <span id="year">2026</span> GardenMentor. All rights reserved.</p>
+        <ul class="footer-legal">
+          <li><button type="button" class="footer-link" data-info="privacy">Privacy Policy</button></li>
+          <li><button type="button" class="footer-link" data-info="terms">Terms of Use</button></li>
+          <li><button type="button" class="footer-link" data-info="accessibility">Accessibility</button></li>
+        </ul>
+        <button type="button" class="btn btn-light btn-small" id="to-top"><span aria-hidden="true">↑</span> Back to Top</button>
+      </div>
+      <p class="footer-proto">This is a design prototype. No emails, photos or messages are sent or stored anywhere.</p>
+    </div>
+  </footer>
+
+  <dialog id="info-dialog" aria-labelledby="info-title">
+    <h2 id="info-title"></h2>
+    <div id="info-body"></div>
+    <button type="button" class="btn btn-primary" id="info-close">Close</button>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
